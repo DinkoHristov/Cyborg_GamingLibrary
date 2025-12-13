@@ -25,9 +25,10 @@ async function request(method, endpoint, data) {
         }
 
         const data = await response.json();
-        return data.results;
+        return data;
     } catch (error) {
         console.log(`The request failed with error: ${error}`);
+        throw error;
     }
 }
 
