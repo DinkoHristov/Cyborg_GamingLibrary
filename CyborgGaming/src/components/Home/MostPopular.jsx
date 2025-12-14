@@ -1,8 +1,9 @@
+import '../../css/App.css';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import PreLoader from "./PreLoader";
-import { getTopEightGames } from "../services/api/games";
-import GameItem from "./GameItem";
+import { getTopEightGames } from "../../services/api/games";
+import PreLoader from './PreLoader';
+import GameItem from './GameItem';
 
 function MostPopular() {
   const [loading, setLoading] = useState(true);

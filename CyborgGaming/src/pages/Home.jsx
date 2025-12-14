@@ -1,6 +1,6 @@
 import '../css/App.css'
-import Banner from '../components/Banner';
-import MostPopular from '../components/MostPopular';
+import Banner from '../components/Home/Banner';
+import MostPopular from '../components/Home/MostPopular'
 
 function Home() {
     return (
