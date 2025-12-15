@@ -16,7 +16,7 @@ function GameDetails({ game }) {
     <div className="row">
       <div className="col-lg-4">
         <Link to={website}>
-          <img src={game.background_image} alt={game.name} style={{borderRadius: "23px"}} />
+          <img src={game.background_image} alt={game.name} style={{borderRadius: "23px", width: "370px", height: "305px"}} />
         </Link>
       </div>
       <div className="col-lg-8">
