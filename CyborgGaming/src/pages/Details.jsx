@@ -1,6 +1,7 @@
 import "../css/App.css";
 import PreLoader from "../components/Home/PreLoader";
 import GameDetailsFeatured from "../components/Details/GameDetailsFeatured";
+import GameDetailsMain from "../components/Details/GameDetailsMain";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getGameDetails } from "../services/api/games";
@@ -37,6 +38,7 @@ function Details() {
                 <div className="col-lg-12">
                   <div className="feature-banner header-text">
                     <GameDetailsFeatured game={ gameDetails }/>
+                    <GameDetailsMain game={ gameDetails } />
                   </div>
                 </div>
               </div>

@@ -2,7 +2,7 @@ const BASE_URL = `http://localhost:5173`;
 
 // Using https://rawg.io/apidocs for the API KEY
 // If the API KEY has expired generate new
-const API_KEY = '1a51c5cb277b419c85ee0870684fbba7';
+const API_KEY = 'cc80699cbbad4b5ca2a78bbd9aaa6d1f';
 const BASE_API_URL = `https://api.rawg.io/api/games`;
 const BASE_API_URL_KEY = `https://api.rawg.io/api/games?key=${API_KEY}`;
 
@@ -16,6 +16,8 @@ const allGames = `${BASE_API_URL_KEY}`;
 const mostPopularGames = `${BASE_API_URL_KEY}&ordering=-rating`;
 const topEightGames = `${BASE_API_URL_KEY}&ordering=-rating&page_size=8`;
 const gameDetails = (gameId) => `${BASE_API_URL}/${gameId}?key=${API_KEY}`;
+const gameImages = (gameId) => `${BASE_API_URL}/${gameId}/screenshots?key=${API_KEY}`;
+const relatedGames = (gameId) => `${BASE_API_URL}/${gameId}/game-series?key=${API_KEY}`;
 
 export const endpoints = {
     login,
@@ -24,5 +26,7 @@ export const endpoints = {
     allGames,
     mostPopularGames,
     topEightGames,
-    gameDetails
+    gameDetails,
+    gameImages,
+    relatedGames,
 };

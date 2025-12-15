@@ -33,9 +33,6 @@ function NavBar() {
                         <Link to='/browse'>Browse</Link>
                     </li>
                     <li>
-                        <Link to='/details'>Details</Link>
-                    </li>
-                    <li>
                         <Link to='/streams'>Streams</Link>
                     </li>
                     <li>

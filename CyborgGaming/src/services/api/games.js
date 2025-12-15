@@ -21,3 +21,13 @@ export async function getGameDetails(gameId) {
     const data = await get(endpoints.gameDetails(gameId));
     return data;
 }
+
+export async function getGameImages(gameId) {
+    const data = await get(endpoints.gameImages(gameId));
+    return data.results;
+}
+
+export async function getRelatedGames(gameId) {
+    const data = await get(endpoints.relatedGames(gameId));
+    return data.results;
+}
