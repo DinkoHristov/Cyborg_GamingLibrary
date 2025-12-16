@@ -1,8 +1,9 @@
 import "../css/App.css";
 import PreLoader from "../components/Global/PreLoader";
-import { useEffect, useState } from "react";
 import GameItemTemplate from "../components/Games/GameItemTemplate";
-import { getAllGamesPaginated } from "../services/api/games";
+import { useEffect, useState } from "react";
+import { getAllGamesPaginated, getSearchedGames } from "../services/api/games";
+import { useSearchParams } from "react-router-dom";
 
 function Games() {
   const [loading, setLoading] = useState(true);
@@ -10,13 +11,25 @@ function Games() {
   const [pageNumber, setPageNumber] = useState(1);
   const [maxPage, setMaxPage] = useState(1); 
 
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search");
+
+  useEffect(() => {setPageNumber(1)}, [searchQuery]);
+
   useEffect(() => {
     const loadGames = async () => {
       try {
         setLoading(true);
-        const data = await getAllGamesPaginated(pageNumber);
-        setGames(data.results);
-        setMaxPage(Math.ceil(data.count / 20));
+
+         if (searchQuery) {
+          const data = await getSearchedGames(searchQuery, pageNumber);
+          setGames(data.results);
+          setMaxPage(Math.ceil(data.count / 20));
+        } else {
+          const data = await getAllGamesPaginated(pageNumber);
+          setGames(data.results);
+          setMaxPage(Math.ceil(data.count / 20));
+        }
       } catch (error) {
         console.log(`Could not load all games: ${error}`);
       } finally {
@@ -25,7 +38,7 @@ function Games() {
     }
 
     loadGames();
-  }, [pageNumber]);
+  }, [pageNumber, searchQuery]);
 
   return (
     <div className="container">
@@ -37,7 +50,8 @@ function Games() {
             <div className="page-content">
               <div className="col-lg-12">
                 <div className="heading-section">
-                  <h4 style={{ textAlign: "center" }}><em>All Games</em> Browse Now</h4>
+                  <h4 style={{ textAlign: "center" }}>
+                    <em>{searchQuery ? `${searchQuery} Results` : "All Games"}</em> Browse Now</h4>
                 </div>
               </div>
               <div className="live-stream">

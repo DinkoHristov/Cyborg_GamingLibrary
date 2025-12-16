@@ -19,6 +19,7 @@ const gameDetails = (gameId) => `${BASE_API_URL}/${gameId}?key=${API_KEY}`;
 const gameImages = (gameId) => `${BASE_API_URL}/${gameId}/screenshots?key=${API_KEY}`;
 const relatedGames = (gameId) => `${BASE_API_URL}/${gameId}/game-series?key=${API_KEY}`;
 const allGamesPaginated = (page, pageSize) => `${BASE_API_URL_KEY}&page=${page}&page_size=${pageSize}`;
+const searchedGames = (query, page, pageSize) => `${BASE_API_URL_KEY}&search=${query}&page=${page}&page_size=${pageSize}`;
 
 export const endpoints = {
     login,
@@ -31,4 +32,5 @@ export const endpoints = {
     gameImages,
     relatedGames,
     allGamesPaginated,
+    searchedGames,
 };

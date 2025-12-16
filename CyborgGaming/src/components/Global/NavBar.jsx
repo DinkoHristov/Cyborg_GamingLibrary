@@ -1,10 +1,18 @@
 import '../../css/App.css'
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 
 function NavBar() {
-    function onBtnClicked(e) {
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
+
+    async function onSubmit(e) {
         e.preventDefault();
-        alert('Clicked');
+
+        if (!searchQuery.trim()) 
+            return;
+
+        navigate(`/games?search=${encodeURIComponent(searchQuery)}`);
     }
 
     return (
@@ -15,28 +23,27 @@ function NavBar() {
                 <nav className="main-nav">
                     <Link to='/' className="logo"><img src="../../logo.png" alt="logo" /></Link>
                 <div className="search-input">
-                    <form id="search" action="#">
-                    <input
-                        type="text"
+                    <form id="search" onSubmit={onSubmit}>
+                    <input type="text"
                         placeholder="Search game..."
                         id="searchText"
                         name="searchKeyword"
-                        onClick={onBtnClicked}/>
+                        onChange={(e) => setSearchQuery(e.target.value)} />
                     <i className="fa fa-search"></i>
                     </form>
                 </div>
                 <ul className="nav">
                     <li>
-                        <Link to='/' className="active">Home</Link>
+                        <NavLink to='/' className={({ isActive }) => isActive ? 'active' : ''} end>Home</NavLink>
                     </li>
                     <li>
-                        <Link to='/games'>Games</Link>
+                        <NavLink to='/games' className={({ isActive }) => isActive ? 'active' : ''}>Games</NavLink>
                     </li>
                     <li>
-                        <Link to='/profile'>
+                        <NavLink to='/profile' className={({ isActive }) => isActive ? 'active' : ''}>
                             Profile{" "}
                             <img src="../../profile-header.jpg" alt="profile-image" />
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
                 <a className="menu-trigger">

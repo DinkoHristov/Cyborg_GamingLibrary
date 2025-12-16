@@ -36,3 +36,8 @@ export async function getAllGamesPaginated(pageNumber = 1, pageSize = 20) {
     const data = await get(endpoints.allGamesPaginated(pageNumber, pageSize));
     return data;
 }
+
+export async function getSearchedGames(searchQuery, pageNumber = 1, pageSize = 20) {
+    const data = await get(endpoints.searchedGames(searchQuery, pageNumber, pageSize));
+    return data;
+}
