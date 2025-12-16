@@ -1704,3 +1704,30 @@ body {
     width: 16%;
   }
 }
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.page-btn {
+  background-color: #1f2122;
+  border: 2px solid #27292a;
+  color: #ec6090;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  background-color: #ec6090;
+  color: #fff;
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

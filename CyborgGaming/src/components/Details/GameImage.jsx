@@ -1,3 +1,5 @@
+import "../../css/App.css";
+
 function GameImage({ image }) {
     return (
         <div className="col-lg-4">

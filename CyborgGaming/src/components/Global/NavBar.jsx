@@ -30,10 +30,7 @@ function NavBar() {
                         <Link to='/' className="active">Home</Link>
                     </li>
                     <li>
-                        <Link to='/browse'>Browse</Link>
-                    </li>
-                    <li>
-                        <Link to='/streams'>Streams</Link>
+                        <Link to='/games'>Games</Link>
                     </li>
                     <li>
                         <Link to='/profile'>

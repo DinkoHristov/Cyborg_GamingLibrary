@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getRelatedGames } from "../../services/api/games";
+import "../../css/App.css";
 import RelateGameItem from "./RelateGameItem";
 
 function RelatedGames() {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getGameImages } from "../../services/api/games";
+import "../../css/App.css";
 import GameImage from "./GameImage";
 import RelatedGames from "./RelatedGames";
 
@@ -62,7 +63,7 @@ function GameDetailsMain({ game }) {
                 <RelatedGames />
                 <div className="col-lg-12">
                     <div className="main-border-button">
-                    <Link to='/'>Download Fortnite Now!</Link>
+                    <Link to='/'>Download {game.name} Now!</Link>
                     </div>
                 </div>
                 </div>

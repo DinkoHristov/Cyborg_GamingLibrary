@@ -31,3 +31,8 @@ export async function getRelatedGames(gameId) {
     const data = await get(endpoints.relatedGames(gameId));
     return data.results;
 }
+
+export async function getAllGamesPaginated(pageNumber = 1, pageSize = 20) {
+    const data = await get(endpoints.allGamesPaginated(pageNumber, pageSize));
+    return data;
+}

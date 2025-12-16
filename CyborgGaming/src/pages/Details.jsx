@@ -1,5 +1,5 @@
 import "../css/App.css";
-import PreLoader from "../components/Home/PreLoader";
+import PreLoader from "../components/Global/PreLoader";
 import GameDetailsFeatured from "../components/Details/GameDetailsFeatured";
 import GameDetailsMain from "../components/Details/GameDetailsMain";
 import { useParams } from "react-router-dom";

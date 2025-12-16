@@ -2,7 +2,7 @@ import '../../css/App.css';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getTopEightGames } from "../../services/api/games";
-import PreLoader from './PreLoader';
+import PreLoader from '../Global/PreLoader';
 import GameItem from './GameItem';
 
 function MostPopular() {
@@ -11,6 +11,7 @@ function MostPopular() {
   useEffect(() => {
     const loadGames = async () => {
         try {
+            setLoading(true);
             const data = await getTopEightGames();
             setGames(data);
         } catch (error) {
