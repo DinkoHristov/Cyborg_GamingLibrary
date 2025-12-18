@@ -1,18 +1,25 @@
-import { get, post } from "./requester";
-import { loginEndpoint, logoutEndpoint, registerEndpoint } from "./urls";
-import { clearUserData, setUserData } from "./userStorage";
+import { clearUserData, getUserData, setUserData } from "./userStorage";
 
-export async function login(email, password) {
-    const data = await post(loginEndpoint, { email, password });
-    setUserData(data);
+export function login(email, password) {
+    const user = { email, password, }
+    const registeredUser = getUserData();
+
+    if (registeredUser && 
+        user.email.localeCompare(registeredUser.email) === 0 &&
+        user.password.localeCompare(registeredUser.password) === 0) {
+            return true;
+    }
+
+    return false;
 }
 
-export async function register(username, email, password) {
-    const data = await post(registerEndpoint, { username, email, password });
-    setUserData(data);
+export function register(username, email, password) {
+    const user = { username, email, password };
+    setUserData(user);
+
+    return user;
 }
 
-export async function logout() {
-    await get(logoutEndpoint);
+export function logout() {
     clearUserData();
 }
