@@ -1,10 +1,15 @@
 import '../../css/App.css'
 import { useState } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { getUserData } from '../../services/utils/userStorage';
+import { logout } from '../../services/utils/userAuth';
 
 function NavBar() {
     const [searchQuery, setSearchQuery] = useState('');
+    const [showDropdown, setShowDropdown] = useState(false);
     const navigate = useNavigate();
+
+    const user = getUserData();
 
     async function onSubmit(e) {
         e.preventDefault();
@@ -13,6 +18,13 @@ function NavBar() {
             return;
 
         navigate(`/games?search=${encodeURIComponent(searchQuery)}`);
+    }
+
+    function onLogout(e) {
+        e.preventDefault();
+        logout();
+        setShowDropdown(false);
+        navigate('/profile');
     }
 
     return (
@@ -39,11 +51,20 @@ function NavBar() {
                     <li>
                         <NavLink to='/games' className={({ isActive }) => isActive ? 'active' : ''}>Games</NavLink>
                     </li>
-                    <li>
+                    <li className="profile-menu"
+                    onMouseEnter={() => setShowDropdown(true)}
+                    onMouseLeave={() => setShowDropdown(false)}>
                         <NavLink to='/profile' className={({ isActive }) => isActive ? 'active' : ''}>
-                            Profile{" "}
+                            {user ? 'Profile': 'Login'}
                             <img src="../../profile-header.jpg" alt="profile-image" />
                         </NavLink>
+                        {user && showDropdown && (
+                            <ul className="profile-dropdown">
+                                <li onClick={(e) => onLogout(e)} className="logout">
+                                    Logout
+                                </li>
+                            </ul>
+                        )}
                     </li>
                 </ul>
                 <a className="menu-trigger">

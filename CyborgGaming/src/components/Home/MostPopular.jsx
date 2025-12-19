@@ -40,7 +40,7 @@ function MostPopular() {
                 {games.map(game => <GameItem game={game} key={game.id} />)}
               <div className="col-lg-12">
                 <div className="main-button">
-                  <Link to="/browse">Discover Popular</Link>
+                  <Link to="/games">Discover Popular</Link>
                 </div>
               </div>
             </div>

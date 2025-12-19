@@ -12,11 +12,6 @@ async function request(method, endpoint, data) {
         requestObject.body = JSON.stringify(data);
     }
 
-    const user = getUserData();
-    if (user) {
-        requestObject.headers['X-Authorization'] = user.accessToken;
-    }
-
     try {
         const response = await fetch(endpoint, requestObject);
         if (response.status == 204) {

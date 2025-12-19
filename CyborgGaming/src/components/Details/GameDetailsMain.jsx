@@ -1,13 +1,26 @@
+import "../../css/App.css";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getGameImages } from "../../services/api/games";
-import "../../css/App.css";
+import { useGameContext } from "../../contexts/GameContext";
 import GameImage from "./GameImage";
 import RelatedGames from "./RelatedGames";
 
 function GameDetailsMain({ game }) {
     const [gameImages, setGameImages] = useState([]);
     const { id } = useParams();
+    const { isDownloaded, addToDownloaded, removeFromDownloaded} = useGameContext();
+    const isDownload = isDownloaded(game.id);
+
+    function onDownload(e) {
+        e.preventDefault();
+
+        if (isDownload) {
+            removeFromDownloaded(game.id);
+        } else {
+            addToDownloaded(game);
+        }
+    }
 
     useEffect(() => {
         const loadGameImages = async () => {
@@ -63,7 +76,15 @@ function GameDetailsMain({ game }) {
                 <RelatedGames />
                 <div className="col-lg-12">
                     <div className="main-border-button">
-                    <Link to='/'>Download {game.name} Now!</Link>
+                        {isDownload ? (
+                            <Link onClick={(e) => onDownload(e)}>
+                                Remove from downloaded!
+                            </Link>
+                        ) : (
+                            <Link onClick={(e) => onDownload(e)}>
+                                Download {game.name} Now!
+                            </Link>
+                        )}
                     </div>
                 </div>
                 </div>

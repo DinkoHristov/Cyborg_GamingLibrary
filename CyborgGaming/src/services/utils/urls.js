@@ -13,6 +13,8 @@ const gameImages = (gameId) => `${BASE_API_URL}/${gameId}/screenshots?key=${API_
 const relatedGames = (gameId) => `${BASE_API_URL}/${gameId}/game-series?key=${API_KEY}`;
 const allGamesPaginated = (page, pageSize) => `${BASE_API_URL_KEY}&page=${page}&page_size=${pageSize}`;
 const searchedGames = (query, page, pageSize) => `${BASE_API_URL_KEY}&search=${query}&page=${page}&page_size=${pageSize}`;
+const allPlatforms = `https://api.rawg.io/api/platforms?key=${API_KEY}`;
+const allGenres = `https://api.rawg.io/api/genres?key=${API_KEY}`;
 
 export const endpoints = {
     allGames,
@@ -23,4 +25,6 @@ export const endpoints = {
     relatedGames,
     allGamesPaginated,
     searchedGames,
+    allPlatforms,
+    allGenres
 };

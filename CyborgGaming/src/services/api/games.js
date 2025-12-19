@@ -41,3 +41,18 @@ export async function getSearchedGames(searchQuery, pageNumber = 1, pageSize = 2
     const data = await get(endpoints.searchedGames(searchQuery, pageNumber, pageSize));
     return data;
 }
+
+export async function getTotalGamesCount() {
+    const data = await get(endpoints.allGames);
+    return data.count;
+}
+
+export async function getTotalPlatformsCount() {
+    const data = await get(endpoints.allPlatforms);
+    return data.count;
+}
+
+export async function getTotalGenresCount() {
+    const data = await get(endpoints.allGenres);
+    return data.count;
+}

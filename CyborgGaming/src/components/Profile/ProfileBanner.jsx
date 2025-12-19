@@ -1,7 +1,54 @@
 import "../../css/App.css";
+import { useEffect, useState } from "react";
+import { useGameContext } from "../../contexts/GameContext";
 import { Link } from "react-router-dom";
+import { getTotalGamesCount, getTotalGenresCount, getTotalPlatformsCount } from "../../services/api/games";
 
 function ProfileBanner({ user }) {
+  const { downloaded } = useGameContext();
+  const [gamesCount, setGamesCount] = useState([]);
+  const [platformsCount, setPlatformsCount] = useState([]);
+  const [genresCount, setGenresCount] = useState([]);
+
+  useEffect(() => {
+    const loadGamesCount = async () => {
+      try {
+        const count = await getTotalGamesCount();
+        setGamesCount(count);
+      } catch (error) {
+        console.log(`Could not load games count: ${error}`);
+      }
+    };
+
+    loadGamesCount();
+  });
+
+  useEffect(() => {
+    const loadPlatformsCount = async () => {
+      try {
+        const count = await getTotalPlatformsCount();
+        setPlatformsCount(count);
+      } catch (error) {
+        console.log(`Could not load platforms count: ${error}`);
+      }
+    };
+
+    loadPlatformsCount();
+  });
+
+  useEffect(() => {
+    const loadGenresCount = async () => {
+      try {
+        const count = await getTotalGenresCount();
+        setGenresCount(count);
+      } catch (error) {
+        console.log(`Could not load genres count: ${error}`);
+      }
+    };
+
+    loadGenresCount();
+  });
+
   return (
     <div className="row">
       <div className="col-lg-12">
@@ -10,15 +57,15 @@ function ProfileBanner({ user }) {
             <div className="col-lg-4">
               <img
                 src='../../public/profile.jpg'
-                alt=""
+                alt={user.username}
                 style={{borderRadius: "23px"}}
               />
             </div>
             <div className="col-lg-4 align-self-center">
               <div className="main-info header-text">
-                <span>{user ? 'Online' : 'Offline'}</span>
-                <h4>Alan Smithee</h4>
-                <p>Welcome again, John</p>
+                <span>{user ? 'Online' : 'Offline'}</span><br></br>
+                <h4>{user.username}</h4>
+                <p>Welcome again, {user.username}</p>
                 <div className="main-border-button">
                     <Link to='/games'>Browse Games</Link>
                 </div>
@@ -27,16 +74,16 @@ function ProfileBanner({ user }) {
             <div className="col-lg-4 align-self-center">
               <ul>
                 <li>
-                  Games Downloaded <span>3</span>
+                  Games Downloaded <span>{downloaded?.length}</span>
                 </li>
                 <li>
-                  Total Games on site <span>16</span>
+                  Total Games on site <span>{gamesCount}</span>
                 </li>
                 <li>
-                  Live Streams <span>None</span>
+                  Total Platforms for games <span>{platformsCount}</span>
                 </li>
                 <li>
-                  Clips <span>29</span>
+                  Total Genres on site <span>{genresCount}</span>
                 </li>
               </ul>
             </div>

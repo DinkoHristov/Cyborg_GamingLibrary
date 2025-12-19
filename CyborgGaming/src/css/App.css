@@ -1731,3 +1731,32 @@ body {
   opacity: 0.4;
   cursor: not-allowed;
 }
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #1f2122;
+  border-radius: 8px;
+  padding: 10px 0;
+  min-width: 150px;
+  z-index: 1000;
+}
+
+.profile-dropdown li {
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.profile-dropdown li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.profile-dropdown .logout {
+  color: #ff6b6b;
+}

@@ -5,36 +5,36 @@ const GameContext = createContext();
 export const useGameContext = () => useContext(GameContext);
 
 export const GameProvider = ({ children }) => {
-    const [favorites, setFavorites] = useState([]);
+    const [downloaded, setDownloaded] = useState([]);
 
     useEffect(() => {
-        const storedFavorites = localStorage.getItem('favorites');
+        const storedDownloaded = sessionStorage.getItem('downloaded');
 
-        if (storedFavorites)
-            setFavorites(JSON.parse(storedFavorites));
+        if (storedDownloaded)
+            setDownloaded(JSON.parse(storedDownloaded));
     }, []);
 
     useEffect(() => {
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    }, [favorites]);
+        sessionStorage.setItem('downloaded', JSON.stringify(downloaded));
+    }, [downloaded]);
 
-    const addToFavorites = (movieToAdd) => {
-        setFavorites(previous => [...previous, movieToAdd]);
+    const addToDownloaded = (gameToAdd) => {
+        setDownloaded(previous => [...previous, gameToAdd]);
     }
 
-    const removeFromFavorites = (movieId) => {
-        setFavorites(previous => previous.filter(movie => movie.id !== movieId));
+    const removeFromDownloaded = (gameId) => {
+        setDownloaded(previous => previous.filter(game => game.id !== gameId));
     }
 
-    const isFavorite = (movieId) => {
-        return favorites.some(movie => movie.id === movieId);
+    const isDownloaded = (gameId) => {
+        return downloaded.some(game => game.id === gameId);
     }
 
     const value = {
-        favorites,
-        addToFavorites,
-        removeFromFavorites,
-        isFavorite
+        downloaded,
+        addToDownloaded,
+        removeFromDownloaded,
+        isDownloaded
     };
 
     return <GameContext.Provider value={value}>

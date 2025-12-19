@@ -4,6 +4,7 @@ import { getUserData } from "../services/utils/userStorage";
 import ProfileBanner from "../components/Profile/ProfileBanner";
 import LoginForm from "../components/Profile/LoginForm";
 import RegisterForm from "../components/Profile/RegisterForm";
+import GamingLibrary from "../components/Profile/GamingLibrary";
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -19,7 +20,10 @@ function Profile() {
         <div className="col-lg-12">
           <div className={`page-content ${!user ? "form-content" : ""}`}>
             {user ? (
-              <ProfileBanner user={user} />
+                <>
+                    <ProfileBanner user={user} />
+                    <GamingLibrary />
+                </>
             ) : isLogin ? (
               <LoginForm onSwitch={() => setIsLogin(false)} />
             ) : (
