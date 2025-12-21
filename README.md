@@ -21,35 +21,45 @@ Logged-in users see a personalized navigation bar with access to their profile.
 
 
 ### Home View
+This is the Home page which guests and logged-in users can see.
 
 ![Home View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/blob/main/CyborgGaming/site_images/home.png?raw=true)
 
 
 ### Games View with Pagination
+All of the games which logged-in users and guests can see and browse through them.
 
 ![Games View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/blob/main/CyborgGaming/site_images/games_1.png?raw=true)
+
+Pagination is implemented and users can browse through Previous and Next pages and see on which page are they.
 
 ![Game View with Pagination](https://github.com/DinkoHristov/Cyborg_GamingLibrary/blob/main/CyborgGaming/site_images/games_2.png?raw=true)
 
 
 ### Details View of the Game
+Details of the selected game with: game name, game image, game website, game description and related games.
 
 ![Details View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/blob/main/CyborgGaming/site_images/details_1.png?raw=true)
+
+Related games to the selected one and a download game button.
 
 ![Details View with Related Games](https://github.com/DinkoHristov/Cyborg_GamingLibrary/blob/main/CyborgGaming/site_images/details_2.png?raw=true)
 
 
 ### Register View
+Guests can easily create account and start downloading games.
 
 ![Register View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/blob/main/CyborgGaming/site_images/register.png?raw=true)
 
 
 ### Login View
+Registered users can Login in their accounts and start downloading games.
 
 ![Login View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/blob/main/CyborgGaming/site_images/login.png?raw=true)
 
 
 ### Profile View logged-in user
+Logged-in users can see their account information and downloaded games.
 
 ![Profile View logged-in](https://github.com/DinkoHristov/Cyborg_GamingLibrary/blob/main/CyborgGaming/site_images/profile.png?raw=true)
 
