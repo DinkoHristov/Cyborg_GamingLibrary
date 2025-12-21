@@ -12,7 +12,7 @@ This project is built as a portfolio application to demonstrate frontend skills 
 ### Guest User View
 Guest users can browse popular games and use the search functionality, but have limited access to user-specific features.
 
-![Guest User View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/guest_home.png?raw=true)
+![Guest User View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/blob/main/CyborgGaming/site_images/guest_home.png?raw=true)
 
 ### Logged-in User View
 Logged-in users see a personalized navigation bar with access to their profile.
