@@ -53,7 +53,7 @@ Guests can easily create account and start downloading games.
 
 
 ### Login View
-Registered users can Login in their accounts and start downloading games.
+Registered users can Login in their account and start downloading games.
 
 ![Login View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/blob/main/CyborgGaming/site_images/login.png?raw=true)
 
