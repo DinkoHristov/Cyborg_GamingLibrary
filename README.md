@@ -7,17 +7,51 @@ This project is built as a portfolio application to demonstrate frontend skills 
 
 ---
 
-## 📸 Screenshots
+## 📸 Site View
 
 ### Guest User View
 Guest users can browse popular games and use the search functionality, but have limited access to user-specific features.
 
-![Guest User View](./screenshots/guest-view.png)
+![Guest User View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/guest_home?raw=true)
 
 ### Logged-in User View
 Logged-in users see a personalized navigation bar with access to their profile.
 
-![Logged-in User View](./screenshots/logged-in-view.png)
+![Logged-in User View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/user_home?raw=true)
+
+
+### Home View
+
+![Home View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/home?raw=true)
+
+
+### Games View with Pagination
+
+![Games View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/games_1?raw=true)
+
+![Game View with Pagination](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/games_2?raw=true)
+
+
+### Details View of the Game
+
+![Details View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/details_1?raw=true)
+
+![Details View with Related Games](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/details_2?raw=true)
+
+
+### Register View
+
+![Register View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/register?raw=true)
+
+
+### Login View
+
+![Login View](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/login?raw=true)
+
+
+### Profile View logged-in user
+
+![Profile View logged-in](https://github.com/DinkoHristov/Cyborg_GamingLibrary/tree/main/CyborgGaming/site_images/profile?raw=true)
 
 ---
 
