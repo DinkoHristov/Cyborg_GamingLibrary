@@ -10,14 +10,11 @@ function GameItemTemplate({ game }) {
           <div className="hover-effect">
             <div className="content">
               <div className="live">
-                <a href="#">Live</a>
+                <Link to={`/details/${game.id}`}>
+                  <i className="fa fa-eye"></i> {game.added}
+                </Link>
               </div>
               <ul>
-                <li>
-                    <Link to={`/details/${game.id}`}>
-                        <i className="fa fa-eye"></i> {game.added}
-                    </Link>
-                </li>
                 <li>
                     <Link to={`/details/${game.id}`}>
                         <i className="fa fa-gamepad"></i> {game.name}

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getGameImages } from "../../services/api/games";
 import { useGameContext } from "../../contexts/GameContext";
+import { getUserData } from "../../services/utils/userStorage";
 import GameImage from "./GameImage";
 import RelatedGames from "./RelatedGames";
 
@@ -11,6 +12,7 @@ function GameDetailsMain({ game }) {
     const { id } = useParams();
     const { isDownloaded, addToDownloaded, removeFromDownloaded} = useGameContext();
     const isDownload = isDownloaded(game.id);
+    const user = getUserData();
 
     function onDownload(e) {
         e.preventDefault();
@@ -74,7 +76,7 @@ function GameDetailsMain({ game }) {
                     <p>{game.description_raw}</p>
                 </div>
                 <RelatedGames />
-                <div className="col-lg-12">
+                <div className="col-lg-12" style={user ? {visibility: 'normal'} : {visibility: 'hidden'}}>
                     <div className="main-border-button">
                         {isDownload ? (
                             <Link onClick={(e) => onDownload(e)}>
